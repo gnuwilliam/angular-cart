@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="App">
+  <head>
+    <title>AngularJS Cart</title>
+    <script type="text/javascript" src="assets/bower/angular/angular.min.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/controllers/cartController.js"></script>
+  </head>
+
+  <body>
+    <div ng-controller="CartController">
+      <ul ng-repeat="product in products">
+        <p>{{ product.name }}</p>
+        <p>{{ product.price | currency }}</p>
+        <p>{{ product.price * product.qty | currency }}</p>
+        <p><input type="text" ng-model="product.qty"></p>
+        <p><button ng-click="remove($index)">Remove</button></p>
+      </ul>
+    </div>
+  </body>
+</html>
